@@ -16,22 +16,25 @@ public class StackApp {
     public static void main(String[] args) {
         // TODO code application logic here
         StackInterface si = new MyStack();
-        System.out.println("Empty? " +si.isEmpty());
-        System.out.println("Add blocks or items called: Iron, Coal, Dirt");
+        System.out.println("SYSTEM TEST:");
+        System.out.println("EMPTY? " +si.isEmpty());
+        System.out.println("ADDING BLOCKS: Iron, Coal, Dirt");
         si.push("Iron");
-        System.out.println("Peek: "+si.add());
+        System.out.println("ADD: "+si.add());
         si.push("Coal");
-        System.out.println("Peek: "+si.add());
+        System.out.println("ADD: "+si.add());
         si.push("Dirt");
-        System.out.println("Size: " +si.size());
-        System.out.println("Peek: "+si.add());
-        System.out.println("Stack now from top to bottom: " +si.displayStack());
-        System.out.println("Take top brick off stack: " +si.remove());
-        System.out.println("Take top brick off stack: " +si.remove());
-        System.out.println("Take top brick off stack: " +si.remove());
-        System.out.println("Size: " +si.size());
+        System.out.println("SIZE: " +si.size());
+        System.out.println("ADD: "+si.add());
+        System.out.println("STACK SHOWING FROM TOP TO BOTTOM: " +si.displayStack());
+        System.out.println("TAKING FROM TOP OF STACK: " +si.remove());
+        System.out.println("TAKING FROM TOP OF STACK: " +si.remove());
+        System.out.println("TAKING FROM TOP OF STACK: " +si.remove());
+        System.out.println("SIZE: " +si.size());
         
-        System.out.println("Peek: "+si.add());
+        System.out.println("ADD: "+si.add());
+        
+        
         
     }
     
