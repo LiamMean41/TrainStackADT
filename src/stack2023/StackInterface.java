@@ -11,8 +11,8 @@ package stack2023;
 public interface StackInterface{
     //essential methods
     public void push(Object newItem);
-    public Object pop();    
-    public Object peek();
+    public Object remove();    //Pop removes from stack
+    public Object add(); // Peek adds to Stack
     
     public boolean isEmpty();
     public int size();

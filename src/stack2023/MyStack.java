@@ -41,7 +41,7 @@ public class MyStack implements StackInterface{
     *@return String object or null
     */
     @Override
-    public Object pop(){
+    public Object remove(){
         if (!(theStack.isEmpty())){
             return theStack.remove(0);
         }else{
@@ -54,7 +54,7 @@ public class MyStack implements StackInterface{
     *@return String object or null
     */
     @Override
-    public Object peek() {
+    public Object add() {
       if (theStack.isEmpty()) {
           System.out.println("Empty stack");
           return null;
