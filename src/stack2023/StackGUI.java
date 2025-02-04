@@ -34,7 +34,10 @@ StackInterface si = new MyStack();
         jScrollPane1 = new javax.swing.JScrollPane();
         textArea = new javax.swing.JTextArea();
         displayBtn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        removeBtn = new javax.swing.JButton();
+        numberBtn = new javax.swing.JButton();
+        removeAllBtn = new javax.swing.JButton();
+        firstBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,10 +69,31 @@ StackInterface si = new MyStack();
             }
         });
 
-        jButton1.setText("Remove Wagon");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        removeBtn.setText("Remove Wagon");
+        removeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                removeBtnActionPerformed(evt);
+            }
+        });
+
+        numberBtn.setText("Number of Wagons");
+        numberBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberBtnActionPerformed(evt);
+            }
+        });
+
+        removeAllBtn.setText("Remove ALL Wagons");
+        removeAllBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeAllBtnActionPerformed(evt);
+            }
+        });
+
+        firstBtn.setText("First Wagon");
+        firstBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstBtnActionPerformed(evt);
             }
         });
 
@@ -84,20 +108,28 @@ StackInterface si = new MyStack();
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(60, 60, 60)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(firstBtn))
                         .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textField)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1))
-                            .addComponent(textField))))
-                .addContainerGap(295, Short.MAX_VALUE))
+                                .addComponent(removeBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(removeAllBtn)
+                                .addGap(25, 25, 25)
+                                .addComponent(numberBtn)))))
+                .addGap(18, 18, 18)
+                .addComponent(displayBtn)
+                .addGap(137, 137, 137))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(displayBtn)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 694, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
         );
         layout.setVerticalGroup(
@@ -112,9 +144,13 @@ StackInterface si = new MyStack();
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
-                    .addComponent(jButton1))
+                    .addComponent(removeBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
-                .addComponent(displayBtn)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(displayBtn)
+                    .addComponent(numberBtn)
+                    .addComponent(removeAllBtn)
+                    .addComponent(firstBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
@@ -150,9 +186,30 @@ StackInterface si = new MyStack();
         textArea.setText(si.displayStack());
     }//GEN-LAST:event_displayBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        si.remove();
+    }//GEN-LAST:event_removeBtnActionPerformed
+
+    private void numberBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberBtnActionPerformed
+        // TODO add your handling code here:
+        textArea.setText("Total number of Wagons: " + String.valueOf(si.size()));
+    }//GEN-LAST:event_numberBtnActionPerformed
+
+    private void removeAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeAllBtnActionPerformed
+        // TODO add your handling code here:
+        int sizeOfList = si.size();
+        
+        for(int i = 0; i < sizeOfList; i++)
+        {
+            si.remove();
+        }
+    }//GEN-LAST:event_removeAllBtnActionPerformed
+
+    private void firstBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstBtnActionPerformed
+        // TODO add your handling code here:
+       // textArea.setText("First Wagon: " + si.get(0)); //maybe add new function inside stack interface?
+    }//GEN-LAST:event_firstBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,10 +249,13 @@ StackInterface si = new MyStack();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton displayBtn;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton firstBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton numberBtn;
+    private javax.swing.JButton removeAllBtn;
+    private javax.swing.JButton removeBtn;
     private javax.swing.JTextArea textArea;
     private javax.swing.JTextField textField;
     // End of variables declaration//GEN-END:variables
