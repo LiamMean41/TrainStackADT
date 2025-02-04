@@ -32,9 +32,10 @@ public class StackApp {
         System.out.println("TAKING FROM TOP OF STACK: " +si.remove());
         System.out.println("SIZE: " +si.size());
         
-        System.out.println("ADD: "+si.add());
+        System.out.println("ADD: "+si.add() + "\nTEST COMPLETE");
         
-        
+        StackGUI GUI= new StackGUI();
+        GUI.setVisible(true);
         
     }
     
