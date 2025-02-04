@@ -93,5 +93,26 @@ public class MyStack implements StackInterface{
        return str;
     }
 
+    @Override
+    public Object get() {
+       String obj;
+       obj = theStack.get(0);
+       System.out.println(obj);
+
+       return obj;
+    }
+
+    @Override
+    public String getIndex(int firstInList) {
+        int sol = firstInList; 
+        
+        String first = theStack.get(sol);
+        
+        System.out.println(first);
+        return first;
+    }
+    
+    
+   
     
 }

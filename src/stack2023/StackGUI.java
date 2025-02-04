@@ -198,8 +198,8 @@ StackInterface si = new MyStack();
 
     private void removeAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeAllBtnActionPerformed
         // TODO add your handling code here:
-        int sizeOfList = si.size();
         
+        int sizeOfList = si.size();
         for(int i = 0; i < sizeOfList; i++)
         {
             si.remove();
@@ -208,7 +208,22 @@ StackInterface si = new MyStack();
 
     private void firstBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstBtnActionPerformed
         // TODO add your handling code here:
-       // textArea.setText("First Wagon: " + si.get(0)); //maybe add new function inside stack interface?
+      
+      int sizeOfList = si.size();
+      int firstInList = -1;
+      for(int i = 0; i < sizeOfList; i++)
+        {
+            firstInList++;
+        }
+      
+      
+      if(si.size() != 0){
+       textArea.setText("First Wagon: " + si.getIndex(firstInList));
+      }
+      else
+      {
+          textArea.setText("No Wagons have been added to list!");
+      }
     }//GEN-LAST:event_firstBtnActionPerformed
 
     /**

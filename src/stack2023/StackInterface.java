@@ -13,6 +13,8 @@ public interface StackInterface{
     public void push(Object newItem);
     public Object remove();    //Pop removes from stack
     public Object add(); // Peek adds to Stack
+    public Object get();
+    public String getIndex(int firstInList);
     
     public boolean isEmpty();
     public int size();
